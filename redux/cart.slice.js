@@ -29,6 +29,14 @@ const cartSlice = createSlice({
       const index = state.findIndex((item) => item.id === action.payload);
       state.splice(index, 1);
     },
+    tiktokTrackAddToCart: (state, action) => {
+      const itemExists = state.find((item) => item.id === action.payload.id);
+      if (itemExists) {
+        ttq.track("AddToCart", {
+          content_id: item.id
+        });
+      } 
+    },
   },
 });
 
