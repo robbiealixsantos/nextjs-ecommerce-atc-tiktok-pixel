@@ -13,7 +13,13 @@ const ProductCard = ({ product }) => {
       <h5 className={styles.category}>{product.category}</h5>
       <p>$ {product.price}</p>
       <button
-        onClick={() => dispatch(addToCart(product))}
+        onClick={function(event){
+          dispatch(addToCart(product));
+          ttq.track("AddToCart", {
+            content_id: product.id,
+            price: product.price
+          });
+        }}
         className={styles.button}
       >
         Add to Cart
