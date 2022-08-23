@@ -14,11 +14,18 @@ const ProductCard = ({ product }) => {
       <p>$ {product.price}</p>
       <button
         onClick={function(event){
-          dispatch(addToCart(product));
+          
+          ttq.identify({
+            email: "robbie@robbie.com",
+            phone_number: "+14153334444"
+          });
+
           ttq.track("AddToCart", {
             content_id: product.id,
             price: product.price
           });
+          
+          dispatch(addToCart(product));
         }}
         className={styles.button}
       >

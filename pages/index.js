@@ -8,6 +8,11 @@ const HomePage = () => {
       <Script id="tiktok-view-content" strategy="afterInteractive" 
       dangerouslySetInnerHTML={{
         __html: `
+        ttq.identify({
+          email: "robbie@robbie.com",
+          phone_number: "+14153334444"
+        });
+
         ttq.track("ViewContent", {
           content_id: 12345
         });
